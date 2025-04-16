@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Predictor</title>
+</head>
+<body>
+  <h1>Stock Price Predictor</h1>
+  <input type="text" id="symbolInput" placeholder="Enter stock symbol (e.g. MSFT)">
+  <button onclick="getPrediction()">Predict</button>
+  <p id="output"></p>
+
+  <script>
+    async function getPrediction() {
+      const symbol = document.getElementById("symbolInput").value;
+      const res = await fetch("https://your-backend-url.onrender.com/predict", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ symbol })
+      });
+      
+      const data = await res.json();
+      document.getElementById("output").innerText = 
+        data.predicted_price ? 
+        `Predicted price for ${data.stock}: $${data.predicted_price}` : 
+        `Error: ${data.error}`;
+    }
+  </script>
+</body>
+</html>
