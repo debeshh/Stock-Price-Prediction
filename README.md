@@ -121,7 +121,7 @@ Then visit the deployed URL to check if it's working.
 
 ## 🧑‍💻 Author
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Debesh
 
 ---
 
